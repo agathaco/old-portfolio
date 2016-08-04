@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="_convert-units.scss" server="stoneshot.com//e/" local="131063143300260448" remote="131136510000000000" Dst="2" />
+<file name="_gradient-positions-parser.scss" server="stoneshot.com//e/" local="131063143300270490" remote="131136510000000000" Dst="2" />
+<file name="_directional-values.scss" server="stoneshot.com//e/" local="131063143300260448" remote="131136510000000000" Dst="2" />
+<file name="_font-source-declaration.scss" server="stoneshot.com//e/" local="131063143300270490" remote="131136510000000000" Dst="2" />
+<file name="_linear-angle-parser.scss" server="stoneshot.com//e/" local="131063143300270490" remote="131136510000000000" Dst="2" />
+<file name="_linear-gradient-parser.scss" server="stoneshot.com//e/" local="131063143300280510" remote="131136510000000000" Dst="2" />
+<file name="_linear-positions-parser.scss" server="stoneshot.com//e/" local="131063143300280510" remote="131136510000000000" Dst="2" />
+<file name="_linear-side-corner-parser.scss" server="stoneshot.com//e/" local="131063143300280510" remote="131136510000000000" Dst="2" />
+<file name="_radial-arg-parser.scss" server="stoneshot.com//e/" local="131063143300290528" remote="131136510000000000" Dst="2" />
+<file name="_radial-gradient-parser.scss" server="stoneshot.com//e/" local="131063143300290528" remote="131136510000000000" Dst="2" />
+<file name="_radial-positions-parser.scss" server="stoneshot.com//e/" local="131063143300300735" remote="131136510000000000" Dst="2" />
+<file name="_render-gradients.scss" server="stoneshot.com//e/" local="131063143300300735" remote="131136510000000000" Dst="2" />
+<file name="_shape-size-stripper.scss" server="stoneshot.com//e/" local="131063143300310651" remote="131136510000000000" Dst="2" />
+<file name="_str-to-num.scss" server="stoneshot.com//e/" local="131063143300310651" remote="131136510000000000" Dst="2" />
+</dwsync>

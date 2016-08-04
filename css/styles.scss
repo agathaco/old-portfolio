@@ -1,0 +1,521 @@
+/*
+===========================
+Fonts
+===========================
+*/
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+@import url(https://fonts.googleapis.com/css?family=Cabin:400,700);
+
+@font-face {
+    font-family: 'edoregular';
+    src: url('../webfonts/edo_regular/edo-webfont.eot');
+    src: url('../webfonts/edo_regular/edo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../webfonts/edo_regular/edo-webfont.woff') format('woff'),
+         url('../webfonts/edo_regular/edo-webfont.ttf') format('truetype'),
+         url('../webfonts/edo_regular/edo-webfont.svg#edoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'variane_scriptregular';
+    src: url('../webfonts/variane_script/variane_script-webfont.woff2') format('woff2'),
+         url('../webfonts/variane_script/variane_script-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'parabolaregular';
+    src: url('../webfonts/parabola/parabola-regular-webfont.eot');
+    src: url('../webfonts/parabola/parabola-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../webfonts/parabola/parabola-regular-webfont.woff2') format('woff2'),
+         url('../webfonts/parabola/parabola-regular-webfont.woff') format('woff'),
+         url('../webfonts/parabola/parabola-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+===========================
+Colours
+===========================
+*/
+$body-color: #f0f0f0;
+$light-orange:#fd903d;
+$dark-orange:#f65318;
+$ruby:#EA155F;
+$violet:#2A1E5C;
+$pink:#db759c;
+$blue:#084C61;
+$lavender:#b096bd;
+$yellow: #F9D800;
+$text-color: #444e55;
+$primary-bgcolor:#ffffff;
+$secondary-bgcolor:#cfd3d4;
+$display: 'parabolaregular', cursive;
+$sans-serif: "Cabin", Helvetica, Arial, sans-serif;
+
+$pastel-orange: #f3c08e;
+$pastel-pink: #e098a9;
+$pastel-purple: #c073d7;
+$pastel-violet: #8d93d2;
+$pastel-green: #3bcbd2;
+$pastel-yellow: #FFF6A8;
+
+
+/*
+===========================
+Mixins 
+===========================
+*/
+
+@import "bourbon/bourbon";
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+
+      -webkit-box-shadow:$top $left $blur $color #{$inset};
+      -moz-box-shadow:$top $left $blur $color #{$inset};
+      box-shadow:$top $left $blur $color #{$inset};
+    }
+@mixin setBgColor($baseColor) {
+    background-color: $baseColor;
+    h1.huge-font {
+		color:darken($baseColor, 4%)
+	}
+ }
+ 
+ /*Background Gradient: Top to bottom */
+@mixin bg-gradient ($orientation, $color1, $color2, $color3, $color4, $color5) {
+ background-color: $color1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($color1), to($color5));
+ background-image: -webkit-linear-gradient($orientation, $color1 0%, $color2: 25%, $color3: 50%, $color4: 75%, $color5: 100%);
+ background-image:    -moz-linear-gradient($orientation, $color1 0%, $color2: 25%, $color3: 50%, $color4: 75%, $color5: 100%);
+ background-image:     -ms-linear-gradient($orientation, $color1 0%, $color2: 25%, $color3: 50%, $color4: 75%, $color5: 100%);
+ background-image:      -o-linear-gradient($orientation, $color1 0%, $color2: 25%, $color3: 50%, $color4: 75%, $color5: 100%);
+ background-image:         linear-gradient($orientation, $color1 0%, $color2: 25%, $color3: 50%, $color4: 75%, $color5: 100%);
+}
+@mixin rotate ($orientation) {
+    -moz-transform: rotate($orientation) ;
+    -webkit-transform: rotate($orientation);
+    -o-transform: rotate($orientation);
+    -ms-transform: rotate($orientation);
+    transform: rotate($orientation);
+	transform-origin:0% 20%;
+	-ms-transform-origin:0% 20%;
+	-webkit-transform-origin:0% 20%; 
+	-moz-transform-origin:0% 20%;
+	-o-transform-origin:0% 20%;
+}
+/*
+===========================
+Styles
+===========================
+*/
+html, body, div, span, p, a, del, em, img, ol, ul, li, fieldset, form, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, body {
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	overflow-x:hidden;
+}
+body {
+	font: {
+		 family:$sans-serif;
+		 weight:400;
+		}
+}
+p {
+	font-size:1.5em;
+}
+h1 {
+		font-size:6em;
+	
+	}
+h2 {
+		font-size:4em;
+		margin-bottom:4rem;
+		font-family:$display;
+	}
+
+section {
+	-webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+	width: 100%;
+	color:white;
+	position:relative;
+	z-index:1;
+	.container {
+	padding:100px 0;
+	margin:0 auto;
+	max-width:1200px;
+	    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+	position:relative;
+	}	
+	h1 {
+		font-family:$display;
+		font-size:10em;
+	}
+}
+.section-title { 
+	position:absolute;
+		left:0;
+		top:80%;
+
+}
+h1.huge-font {;
+		font-weight:700;
+		font-family:$sans-serif;
+		@include rotate (270deg);
+			font-size:16em;
+}
+#intro {
+	background: url('../img/cat.png') fixed, $ruby;
+	 background-image: linear-gradient(-45deg, #FFF6A8 0%, #f3c08e 20%, #e098a9 40%, #c073d7 60%, #8d93d2 80%, #3bcbd2 100%);
+	 border:20px white solid;
+	p {
+		font-size:2em;
+	}
+}
+#about {
+	@include setBgColor(white);
+	color:#999;
+	.img-wrap {
+		width: 100%;
+		margin-top:-0.5vh;
+		margin-left:-12vh;
+	}
+	.img-bg {
+		background-image: linear-gradient(-45deg, #FFF6A8 0%, #f3c08e 25%, #e098a9 50%, #8d93d2 75%, #3bcbd2 100%);
+		height:400px;
+		Width:400px;
+		position:absolute;
+		z-index:1;
+		left:20px;
+		top:20px;
+	}
+	.img-top {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+
+}
+#expertise {
+	@include setBgColor($pastel-green)
+}
+#work {
+	@extend #about;
+
+	@include setBgColor(white);
+	.columns {
+		position:relative;
+		min-height:500px;
+	}
+	.column {
+		width:33,33%
+	}
+		div.project1, div.project2, div.project3 {
+		position:relative;
+	}
+	div.project2 .img-wrap {
+			position:absolute;
+			right:0;
+	}
+}
+#contact {
+	background-image: linear-gradient(-45deg, #FFF6A8 0%, #f3c08e 25%, #e098a9 50%, #8d93d2 75%, #3bcbd2 100%);
+	.container {
+		padding: 50px 0;
+	}
+	a.btn {
+		padding:0.5em 1em;
+		border-radius:2px;
+		color: $pastel-purple;
+		background-color: white;
+		font-size:2em;
+		text-transform:uppercase;
+		&:hover {
+			background-color: darken(white, 5%);
+		}
+	}
+}
+
+.p-1 {
+    width: 10px;
+    height: 10px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+    -webkit-box-shadow: 0 0 50px 30px $pastel-orange;
+    -moz-box-shadow: 0 0 50px 30px $pastel-orange;
+    box-shadow: 0 0 50px 30px $pastel-orange;
+	background-color: $pastel-orange;
+}
+.p-2 {
+    width: 154px;
+    height: 154px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
+    opacity: 0.15;
+    -webkit-box-shadow: 0 0 50px 30px $pastel-violet;
+    -moz-box-shadow: 0 0 50px 30px $pastel-violet;
+    box-shadow: 0 0 50px 30px $pastel-violet;
+	background-color: $pastel-violet;
+}
+.p-2 {
+    width: 154px;
+    height: 154px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
+    opacity: 0.15;
+    -webkit-box-shadow: 0 0 50px 30px $pastel-purple;
+    -moz-box-shadow: 0 0 50px 30px $pastel-purple;
+    box-shadow: 0 0 50px 30px $pastel-purple;
+	background-color: $pastel-purple;
+}
+.p-4 {
+    width: 90px;
+    height: 90px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+    opacity: 0.25;
+    -webkit-box-shadow: 0 0 40px 30px $pastel-green;
+    -moz-box-shadow: 0 0 40px 30px $pastel-green;
+    box-shadow: 0 0 40px 30px $pastel-green;
+	background-color: $pastel-green;
+}
+.p-5 {
+    width: 55px;
+    height: 55px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+    opacity: 0.1;
+    -webkit-box-shadow: 0 0 10px 20px $pastel-pink;
+    -moz-box-shadow: 0 0 10px 20px $pastel-pink;
+    box-shadow: 0 0 10px 20px $pastel-pink;
+	background-color: $pastel-pink;
+}
+.p-6 {
+    width: 52px;
+    height: 52px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+	background-color: $pastel-yellow;
+}
+
+.p-7 {
+    width: 30px;
+    height: 30px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+    -webkit-box-shadow: 0 0 2px 3px pastel-orange;
+    -moz-box-shadow: 0 0 2px 3px pastel-orange;
+    box-shadow: 0 0 2px 3px pastel-orange;
+	background-color: $pastel-orange;
+}
+.p-8 {
+    width: 5px;
+    height: 5px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+    opacity: 0.1;
+    -webkit-box-shadow: 0 0 30px 17px $pastel-pink;
+    -moz-box-shadow: 0 0 30px 17px $pastel-pink;
+    box-shadow: 0 0 30px 17px $pastel-pink;
+	background-color: $pastel-pink;
+}
+.p-9 {
+    width: 60px;
+    height: 60px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+    opacity: 0.1;
+    -webkit-box-shadow: 0 0 1px 1px $pastel-violet;
+    -moz-box-shadow: 0 0 1px 1px $pastel-violet;
+    box-shadow: 0 0 1px 1px $pastel-violet;
+	background-color: $pastel-violet;
+}.p-10 {
+    width: 1px;
+    height: 1px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+    -webkit-box-shadow: 0 0 10px 5px $pastel-yellow;
+    -moz-box-shadow: 0 0 10px 5px $pastel-yellow;
+    box-shadow: 0 0 10px 5px $pastel-yellow;
+	background-color: $pastel-yellow;
+}
+.p-11 {
+    width: 159px;
+    height: 159px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+    opacity: 0.1;
+    -webkit-box-shadow: 0 0 1px 0px white;
+    -moz-box-shadow: 0 0 1px 0px white;
+    box-shadow: 0 0 1px 0px white;
+	background-color: #fff;
+}
+.p-12 {
+    width: 10px;
+    height: 10px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=8);
+    opacity: 0.08;
+    -webkit-box-shadow: 0 0 30px 20px white;
+    -moz-box-shadow: 0 0 30px 20px white;
+    box-shadow: 0 0 30px 20px white;
+	background-color: #fff;
+}
+.p-13 {
+    width: 80px;
+    height: 80px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=8);
+    opacity: 0.08;
+    -webkit-box-shadow: 0 0 1px 1px $pastel-pink;
+    -moz-box-shadow: 0 0 1px 1px $pastel-pink;
+    box-shadow: 0 0 1px 1px $pastel-pink;
+	background-color: $pastel-pink;
+}
+.p-14 {
+    width: 50px;
+    height: 50px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+    -webkit-box-shadow: 0 0 30px 15px $pastel-green;
+    -moz-box-shadow: 0 0 30px 15px $pastel-green;
+    box-shadow: 0 0 30px 15px $pastel-green;
+	background-color: $pastel-green;
+}
+.p-15 {
+    width: 235px;
+    height: 235px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=5);
+    opacity: 0.05;
+    -webkit-box-shadow: 0 0 30px 15px $pastel-violet;
+    -moz-box-shadow: 0 0 30px 15px $pastel-violet;
+    box-shadow: 0 0 30px 15px $pastel-violet;
+	background-color: $pastel-violet;
+}
+.p-16 {
+    width: 26px;
+    height: 26px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+	background-color: $pastel-yellow;
+}
+.p-17 {
+    width: 3px;
+    height: 3px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+    opacity: 0.2;
+    -webkit-box-shadow: 0 0 35px 20px $pastel-green;
+    -moz-box-shadow: 0 0 35px 20px $pastel-green;
+    box-shadow: 0 0 35px 20px $pastel-green;
+	background-color: $pastel-green;
+}
+.p-18 {
+    width: 2px;
+    height: 2px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
+    opacity: 0.15;
+    -webkit-box-shadow: 0 0 2px 2px $pastel-pink;
+    -moz-box-shadow: 0 0 2px 2px $pastel-pink;
+    box-shadow: 0 0 2px 2px $pastel-pink;
+	background-color: $pastel-pink;
+}
+.p-19 {
+    width: 45px;
+    height: 45px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35);
+    opacity: 0.35;
+    -webkit-box-shadow: 0 0 15px 28px $pastel-violet;
+    -moz-box-shadow: 0 0 15px 28px $pastel-violet;
+    box-shadow: 0 0 15px 8px $pastel-violet;
+	background-color: $pastel-violet;
+}
+.p-20 {
+    width: 2px;
+    height: 2px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=45);
+    opacity: 0.45;
+    -webkit-box-shadow: 0 0 2px 2px white;
+    -moz-box-shadow: 0 0 2px 2px white;
+    box-shadow: 0 0 2px 2px white;
+	background-color: #fff;
+}
+.p-21 {
+    width: 5px;
+    height: 5px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35);
+    opacity: 0.35;
+    -webkit-box-shadow:  0 0 5px 5px $pastel-purple;
+    -moz-box-shadow:  0 0 5px 5px $pastel-purple;
+    box-shadow:  0 0 5px 5px $pastel-purple;
+	background-color: $pastel-purple;
+}
+.p-22 {
+    width: 108px;
+    height: 108px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=45);
+    opacity: 0.45;
+	background-color: $pastel-yellow;
+}
+.particle {
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: -1;
+}
+@media screen and (min-width: 1400px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (max-width: 1399px) {
+
+}
+
+@media screen and (max-width: 1199px) {
+  
+}
+
+@media screen and (max-width: 767px) {
+  
+}
+
+@media screen and (max-width: 320px) {
+  
+}

@@ -20,7 +20,8 @@
     var defaults = {
         // base64 encoded to cut down requests,
         // doesn't work in IE <= 7.0 and I'm not bothered to be honest
-        images: [  'p-1',
+        images: [  
+      'p-1',
       'p-2',
       'p-3',
       'p-4',

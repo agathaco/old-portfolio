@@ -44,10 +44,10 @@
       'p-21',
       'p-22'
                 ],
-        total:   40,   // anything over a few hundred is gonna crawl
+        total:   30,   // anything over a few hundred is gonna crawl
         boundary: 100,  // avoid the edge of the window
         fast:     15,    // fastest spark (a lower number is faster)
-        slow:     10,    // slowest spark (a higher number is slower)
+        slow:     12,    // slowest spark (a higher number is slower)
         limit:    3600, // stop after this many seconds (one hour)
     }
 

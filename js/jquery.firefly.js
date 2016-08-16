@@ -18,6 +18,7 @@
      * default settings
      */
     var defaults = {
+		
         // base64 encoded to cut down requests,
         // doesn't work in IE <= 7.0 and I'm not bothered to be honest
         images: [  
@@ -158,7 +159,7 @@
 
 	    $.firefly.create = function(img){
          var spark = $('<figure></figure>').addClass('particle ' +img).hide()
-        $("body").append(spark)
+        $("#intro .hero-body").append(spark)
 
         spark.css({'position': 'absolute',
                     'z-index':  ff.random(0, 20),

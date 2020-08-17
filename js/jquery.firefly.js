@@ -40,15 +40,11 @@
       'p-16',
       'p-17',
       'p-18',
-      'p-19',
-      'p-20',
-      'p-21',
-      'p-22'
-                ],
-        total:   30,   // anything over a few hundred is gonna crawl
-        boundary: 100,  // avoid the edge of the window
-        fast:     15,    // fastest spark (a lower number is faster)
-        slow:     12,    // slowest spark (a higher number is slower)
+       ],
+        total:   25,   // anything over a few hundred is gonna crawl
+        boundary: 70,  // avoid the edge of the window
+        fast:     30,    // fastest spark (a lower number is faster)
+        slow:     30,    // slowest spark (a higher number is slower)
         limit:    3600, // stop after this many seconds (one hour)
     }
 
@@ -86,7 +82,6 @@
     $.firefly = function(settings){
         ff = $.firefly
         ffs = $.extend({}, defaults, settings)
-
         ff.calibrate()  // get size of window
         ff.make()       // load the spark images
         ff.start()      // start moving them
@@ -150,7 +145,7 @@
     // remove
     // removes a spark from the DOM
     $.firefly.remove = function() {
-        for (i = 0; i < ffs.total; i++) $('img[src="'+ffs.images[i]+'"]').remove()
+        for (i = 0; i < ffs.total; i++) $('img[src="'+ffs.images[i]+'"]').remove();
     }
 
 
@@ -159,10 +154,10 @@
 
 	    $.firefly.create = function(img){
          var spark = $('<figure></figure>').addClass('particle ' +img).hide()
-        $("#intro .hero-body").append(spark)
+        $("header").append(spark)
 
         spark.css({'position': 'absolute',
-                    'z-index':  ff.random(0, 20),
+                    'z-index':  ff.random(0, 25),
                     'top':      ff.random(ffs.boundary, y - ffs.boundary),
                     'left':     ff.random(ffs.boundary, x - ffs.boundary)
                     })

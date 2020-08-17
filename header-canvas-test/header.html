@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Agathe Cocco - Front End Developer</title>
+  <meta name="author" content="Agathe Cocco">
+  <meta name="description" content="Agathe Cocco - Front-end Developer - London, UK">
+  <link rel="icon" href="img/favicon2.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="../css/page-styles.css">
+</head>
+<body>
+  
+  <div class="flex-ie">
+    <header class="hero" id="intro">
+    <canvas></canvas>
+      <div class="container">
+        <h1>Hello! I'm Agathe.</h1>
+        <p>I am a creative front-end developer <br>based in London</p>
+      </div>
+    </header></div>
+
+
+<script>
+  var canvas = document.querySelector("canvas");
+  var header = document.querySelector("header");
+var c = canvas.getContext("2d");
+
+canvas.height = header.offsetHeight;
+canvas.width = header.offsetWidth;
+
+var mouse = {
+  x: undefined,
+  y: undefined
+};
+
+var maxRadius = 150
+var numParticles = 100;
+
+var colorArray = [
+  "#FFF6B5",
+  "#F2BA82",
+  "#F2A4BF",
+  "#D974DB",
+  "#9298DD",
+  "#3CD0D8", 
+  "#ffffff"
+];
+
+// window.addEventListener("mousemove", function() {
+//   mouse.x = event.x;
+//   mouse.y = event.y;
+// });
+
+window.addEventListener("resize", function() {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  init();
+});
+
+function Circle(x, y, dx, dy, r) {
+  this.x = x;
+  this.y = y;
+  this.dx = dx;
+  this.dy = dy;
+  this.r = r;
+  this.minRadius = r;
+  this.color = colorArray[Math.floor(Math.random() * colorArray.length)]; 
+  this.opacity = Math.random().toFixed(1) - 0.6 ;
+  this.blur = Math.floor(Math.random() * 10)
+  this.draw = function() {
+    // c.filter ="blur(" + this.blur + "px)";
+    c.beginPath();
+    c.globalAlpha = this.opacity; // random opacity
+    c.fillStyle = this.color;
+    c.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
+    c.fill();
+
+  };
+  this.update = function() {
+    if (this.x + this.r > innerWidth || this.x - this.r < 0) {
+      this.dx = -this.dx;
+    }
+    if (this.y + this.r > innerHeight || this.y - this.r < 0) {
+      this.dy = -this.dy;
+    }
+    this.x += this.dx;
+    this.y += this.dy;
+    this.draw();
+  };
+}
+
+var circleArray = [];
+
+function init() {
+  circleArray = [];
+  for (var i = 1; i < numParticles; i++) {
+    var r = Math.random() * 50;
+    var x = Math.random() * (window.innerWidth - r * 2) + r;
+    var y = Math.random() * (window.innerHeight - r * 2) + r;
+    var dx = (Math.random() - 0.5) * 0.6;
+    var dy = (Math.random() - 0.5) * 0.6;
+    circleArray.push(new Circle(x, y, dx, dy, r));
+  }
+}
+init();
+
+function animate() {
+  requestAnimationFrame(animate);
+  c.clearRect(0, 0, innerWidth, innerHeight);
+  for (var i = 1; i < circleArray.length; i++) {
+    circleArray[i].update();
+  }
+}
+
+animate();
+
+</script>
+
+
+</body>
+</html>
